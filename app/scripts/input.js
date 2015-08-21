@@ -15,6 +15,8 @@ Module.constant('dateTimeConfig', {
         (attrs.autoClose ? 'auto-close="' + attrs.autoClose + '" ' : '') +
         (attrs.template ? 'template="' + attrs.template + '" ' : '') +
         (attrs.minView ? 'min-view="' + attrs.minView + '" ' : '') +
+        (attrs.before ? 'before="' + attrs.before + '" ' : '') +
+        (attrs.after ? 'after="' + attrs.after + '" ' : '') +
         (attrs.partial ? 'partial="' + attrs.partial + '" ' : '') +
         (attrs.step ? 'step="' + attrs.step + '" ' : '') +
         'class="date-picker-date-time"></div>';

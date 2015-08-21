@@ -50,6 +50,9 @@ Module.directive('datePicker', ['datePickerConfig', 'datePickerUtils', function 
       var step = parseInt(attrs.step || datePickerConfig.step, 10);
       var partial = !!attrs.partial;
 
+      var before = attrs.before;
+      var after = attrs.after;
+      
       //if ngModel, we can add min and max validators
       if(ngModel)
       {
@@ -212,10 +215,14 @@ Module.directive('datePicker', ['datePickerConfig', 'datePickerUtils', function 
       };
 
       scope.isAfter = function (date) {
+        var timeString = (after === 'now') ? new Date() : new Date(parseInt(after, 10));
+        scope.after = timeString;
         return scope.after && datePickerUtils.isAfter(date, scope.after);
       };
 
       scope.isBefore = function (date) {
+        var timeString = (before === 'now') ? new Date() : new Date(parseInt(before, 10));
+        scope.before = timeString;
         return scope.before && datePickerUtils.isBefore(date, scope.before);
       };
 
